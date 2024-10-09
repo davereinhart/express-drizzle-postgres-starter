@@ -1,11 +1,11 @@
-import process from 'node:process';
-import type { Config } from 'drizzle-kit';
+import process from 'node:process'
+import { defineConfig } from 'drizzle-kit'
 
-export default {
-  schema: './src/schema/*',
+export default defineConfig({
   out: './drizzle',
-  driver: 'pg',
+  schema: './src/schema/*',
+  dialect: 'postgresql',
   dbCredentials: {
-    connectionString: process.env.DB_URL,
+    url: process.env.DATABASE_URL!,
   },
-} satisfies Config;
+})

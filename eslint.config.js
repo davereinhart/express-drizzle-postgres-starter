@@ -1,7 +1,7 @@
-import eslint from '@antfu/eslint-config';
+import eslint from '@antfu/eslint-config'
 
 export default eslint({
   stylistic: {
-    semi: true,
+    semi: false,
   },
-});
+})

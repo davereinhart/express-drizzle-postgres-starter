@@ -14,6 +14,7 @@
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
+    "types": ["node"],
     "allowJs": true,
     /* Strictness */
     "strict": true,
@@ -22,6 +23,6 @@
     /* Base Options: */
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   }
 }
