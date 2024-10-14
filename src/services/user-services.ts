@@ -1,6 +1,6 @@
 import crypto from 'node:crypto'
 import process from 'node:process'
-import { type NewUser, type UpdateUser, type User, users } from '@/schema/user'
+import { type NewUser, type UpdateUser, type User, users } from '@/db/schema/user'
 import { db } from '@/utils/db'
 import { sendVerificationEmail } from '@/utils/email'
 import { BackendError } from '@/utils/errors'

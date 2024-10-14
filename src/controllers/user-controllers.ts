@@ -8,7 +8,7 @@ import {
   updateUserSchema,
   type User,
   verifyUserSchema,
-} from '@/schema/user'
+} from '@/db/schema/user'
 import {
   addUser,
   deleteUser,
