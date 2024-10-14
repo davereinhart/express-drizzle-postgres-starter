@@ -51,7 +51,7 @@ export function refreshTokens(refreshToken: string) {
     const newTokenPayload = _.pick(tokenPayload, ['userId'])
 
     const accessToken = JWT.sign(newTokenPayload, AUTH_JWT_ACCESS_TOKEN_SECRET, JWT_ACCESS_CONFIG)
-    const newRefreshToken = JWT.sign(newTokenPayload, AUTH_JWT_ACCESS_TOKEN_SECRET, JWT_ACCESS_CONFIG)
+    const newRefreshToken = JWT.sign(newTokenPayload, AUTH_JWT_REFRESH_TOKEN_SECRET, JWT_REFRESH_CONFIG)
 
     return {
       authenticated: true,
