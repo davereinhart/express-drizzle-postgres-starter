@@ -7,12 +7,10 @@ export async function getAllSpecimens() {
   return await db.select().from(specimens)
 }
 
-export async function updateSpecimen(specimenId: string, { name }: UpdateSpecimen) {
+export async function updateSpecimen(specimenId: string, values: UpdateSpecimen) {
   const [updatedSpecimen] = await db
     .update(specimens)
-    .set({
-      name,
-    })
+    .set(values)
     .where(eq(specimens.id, specimenId))
     .returning(
       {

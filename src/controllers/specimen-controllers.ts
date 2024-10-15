@@ -19,11 +19,14 @@ export const handleGetAllSpecimens = createHandler(async (_req, res) => {
 })
 
 export const handleUpdateSpecimen = createHandler(updateSpecimenSchema, async (req, res) => {
-  const { id, name } = req.body
+  const id = req.params.id
+  const { name } = req.body
 
-  const updatedSpecimen = await updateSpecimen(id, { name })
+  if (id && name) {
+    const updatedSpecimen = await updateSpecimen(id, { name })
 
-  res.status(200).json({
-    record: updatedSpecimen,
-  })
+    res.status(200).json({
+      record: updatedSpecimen,
+    })
+  }
 })

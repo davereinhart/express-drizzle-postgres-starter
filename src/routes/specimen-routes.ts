@@ -7,6 +7,6 @@ import { authenticate } from '@/middlewares/auth'
 import { createRouter } from '@/utils/create'
 
 export default createRouter((router: Router) => {
-  router.get('/all', authenticate(), handleGetAllSpecimens)
-  router.put('/update', authenticate(), handleUpdateSpecimen)
+  router.get('/', authenticate(), handleGetAllSpecimens)
+  router.put('/:id', authenticate(), handleUpdateSpecimen)
 })
