@@ -1,8 +1,10 @@
 import {
+  newSpecimenSchema,
   type Specimen,
   updateSpecimenSchema,
 } from '@/db/schema/specimen'
 import {
+  addSpecimen,
   getAllSpecimens,
   getSpecimensJsonSchema,
   updateSpecimen,
@@ -27,6 +29,19 @@ export const handleUpdateSpecimen = createHandler(updateSpecimenSchema, async (r
 
     res.status(200).json({
       record: updatedSpecimen,
+    })
+  }
+})
+
+export const handleAddSpecimen = createHandler(newSpecimenSchema, async (req, res) => {
+  const values = newSpecimenSchema.parse(req).body
+
+  if (values) {
+    consola.log(values)
+    const newSpecimen = await addSpecimen(values)
+
+    res.status(200).json({
+      record: newSpecimen,
     })
   }
 })

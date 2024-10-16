@@ -33,7 +33,7 @@ export const updateSpecimenSchema = z.object({
 export const newSpecimenSchema = z.object({
   body: selectSpecimenSchema.pick({
     name: true,
-  }),
+  }).partial(),
 })
 
 export type Specimen = InferSelectModel<typeof specimens>
