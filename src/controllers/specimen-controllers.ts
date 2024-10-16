@@ -1,10 +1,13 @@
+import type { Request, Response } from 'express'
 import {
+  deleteSpecimenSchema,
   newSpecimenSchema,
   type Specimen,
   updateSpecimenSchema,
 } from '@/db/schema/specimen'
 import {
   addSpecimen,
+  deleteSpecimen,
   getAllSpecimens,
   getSpecimensJsonSchema,
   updateSpecimen,
@@ -37,11 +40,20 @@ export const handleAddSpecimen = createHandler(newSpecimenSchema, async (req, re
   const values = newSpecimenSchema.parse(req).body
 
   if (values) {
-    consola.log(values)
     const newSpecimen = await addSpecimen(values)
-
     res.status(200).json({
       record: newSpecimen,
     })
   }
 })
+
+export async function handleDeleteSpecimen(req: Request, res: Response) {
+  const id = req.params.id
+  if (id) {
+    const deletedSpecimen = await deleteSpecimen(id)
+
+    res.status(200).json({
+      record: deletedSpecimen,
+    })
+  }
+}

@@ -1,6 +1,7 @@
 import type { Router } from 'express'
 import {
   handleAddSpecimen,
+  handleDeleteSpecimen,
   handleGetAllSpecimens,
   handleUpdateSpecimen,
 } from '@/controllers/specimen-controllers'
@@ -11,4 +12,5 @@ export default createRouter((router: Router) => {
   router.get('/', authenticate(), handleGetAllSpecimens)
   router.put('/:id', authenticate(), handleUpdateSpecimen)
   router.post('/', authenticate(), handleAddSpecimen)
+  router.delete('/:id', authenticate(), handleDeleteSpecimen)
 })

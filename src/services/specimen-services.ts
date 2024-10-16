@@ -17,6 +17,15 @@ export async function addSpecimen(values: NewSpecimen) {
   return newSpecimen
 }
 
+export async function deleteSpecimen(specimenId: string) {
+  const [deletedSpecimen] = await db
+    .delete(specimens)
+    .where(eq(specimens.id, specimenId))
+    .returning({ id: specimens.id })
+
+  return deletedSpecimen
+}
+
 export async function updateSpecimen(specimenId: string, values: UpdateSpecimen) {
   const [updatedSpecimen] = await db
     .update(specimens)
